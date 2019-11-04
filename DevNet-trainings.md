@@ -9,3 +9,5 @@
 4) Intro to DNAC Programmability with REST APIs: https://developer.cisco.com/learning/modules/dnac-rest-apis this will take you through REST APIs in DNAC and how to use them.
 	 
 DNAC programmability: https://developer.cisco.com/learning/tracks/dnacenter-programmability take your time with this – this is the hardest part to understand – actually I haven’t fully grasped all the concepts yet ☺ Telemetry is what we’re ultimately after. 
+
+* USE https://github.com/CiscoDevNet/dnav3-code to go along the labs!!!*
