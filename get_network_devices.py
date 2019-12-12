@@ -1,10 +1,13 @@
 import requests
 import json
 
+host = "https://sandboxdnac2.cisco.com"
+## change to any host/sandbox environment
+### authorization may be different
 
 def get_auth_token():
 
-    url = "https://sandboxdnac2.cisco.com/dna/system/api/v1/auth/token%20"
+    url = host+"/dna/system/api/v1/auth/token%20"
 
     querystring = {"Authorization":"Basic%20ZGV2bmV0dXNlcjpDaXNjbzEyMyE=%20"}
 
@@ -23,7 +26,7 @@ def get_auth_token():
 
 def get_network_device(token):
 
-    url = "https://sandboxdnac2.cisco.com/api/v1/network-device"
+    url = host+"/api/v1/network-device"
 
     headers = {
         'x-auth-token': token,
@@ -35,11 +38,9 @@ def get_network_device(token):
 
     device_json = response.json()
 
-    device_type = []
     device_family = []
 
     for device in device_json['response']:
-        device_type.append(device['type'])
         device_family.append(device['family'])
 
     count = len(device_family)
@@ -49,7 +50,7 @@ def get_network_device(token):
     switches = device_family.count('Switches and Hubs')
     wireless_controller = device_family.count('Wireless Controller')
     routers = device_family.count('Routers')
-    
+
     print("access points: ", access_point)
     print("switches and hubs: ", switches)
     print("wireless controllers: ", wireless_controller)
