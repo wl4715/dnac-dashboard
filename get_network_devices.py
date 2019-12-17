@@ -44,20 +44,24 @@ def get_network_device(token):
         device_family.append(device['family'])
 
     count = len(device_family)
-    print("total number of devices: ", count)
 
-    access_point = device_family.count('Unified AP')
+    routers = device_family.count('Routers')
     switches = device_family.count('Switches and Hubs')
     wireless_controller = device_family.count('Wireless Controller')
-    routers = device_family.count('Routers')
+    access_point = device_family.count('Unified AP')
 
-    print("access points: ", access_point)
-    print("switches and hubs: ", switches)
-    print("wireless controllers: ", wireless_controller)
-    print("routers: ", routers)
+    return count, routers, switches, wireless_controller, access_point
+
+
 
 ##---------------------------------------------------------------
 
 if __name__ == "__main__":
     token = get_auth_token()
-    get_network_device(token)
+    device_count, routers, switches, wlc, aps  = get_network_device(token)
+
+    print("total number of devices: ", device_count)
+    print("routers: ", routers)
+    print("switches and hubs: ", switches)
+    print("wireless controllers: ", wlc)
+    print("access points: ", aps)
