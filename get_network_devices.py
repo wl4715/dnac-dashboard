@@ -1,5 +1,9 @@
 import requests
 import json
+import datetime
+from firebase import firebase
+
+firebase = firebase.FirebaseApplication('https://dashboard-cisco.firebaseio.com', None)
 
 host = "https://sandboxdnac2.cisco.com"
 ## change to any host/sandbox environment
@@ -44,7 +48,6 @@ def get_network_device(token):
         device_family.append(device['family'])
 
     count = len(device_family)
-
     routers = device_family.count('Routers')
     switches = device_family.count('Switches and Hubs')
     wireless_controller = device_family.count('Wireless Controller')
@@ -65,3 +68,16 @@ if __name__ == "__main__":
     print("switches and hubs: ", switches)
     print("wireless controllers: ", wlc)
     print("access points: ", aps)
+
+    date = datetime.datetime.now().strftime("%x")
+    date = date.replace("/","-")
+    print(date)
+
+    result = firebase.put('','/dnac/network-devices/{}/count'.format(date),device_count)
+    result = firebase.put('','/dnac/network-devices/{}/routers'.format(date),routers)
+    result = firebase.put('','/dnac/network-devices/{}/switches'.format(date),switches)
+    result = firebase.put('','/dnac/network-devices/{}/wlc'.format(date),wlc)
+    result = firebase.put('','/dnac/network-devices/{}/aps'.format(date),aps)
+
+    result = firebase.get('/dnac', None)
+    print(result)
