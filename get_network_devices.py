@@ -5,7 +5,7 @@ from firebase import firebase
 
 firebase = firebase.FirebaseApplication('https://dashboard-cisco.firebaseio.com', None)
 
-host = "https://sandboxdnac2.cisco.com"
+host = "https://sandboxdnac.cisco.com"
 ## change to any host/sandbox environment
 ### authorization may be different
 
@@ -13,17 +13,13 @@ def get_auth_token():
 
     url = host+"/dna/system/api/v1/auth/token%20"
 
-    querystring = {"Authorization":"Basic%20ZGV2bmV0dXNlcjpDaXNjbzEyMyE=%20"}
-
     headers = {
         'Authorization': "Basic ZGV2bmV0dXNlcjpDaXNjbzEyMyE=",
-        'cache-control': "no-cache",
-        'Postman-Token': "39a9f684-1091-4ba8-a930-8530457edee5"
-        }
+    }
 
-    response = requests.request("POST", url, headers=headers, params=querystring)
+    response = requests.request("POST", url, headers=headers).json()
 
-    token = response.json()['Token']
+    token = response['Token']
 
     return token
 
@@ -34,17 +30,13 @@ def get_network_device(token):
 
     headers = {
         'x-auth-token': token,
-        'cache-control': "no-cache",
-        'Postman-Token': "473c4a26-9270-41ad-be37-954f2d82e4fa"
-        }
+    }
 
-    response = requests.request("GET", url, headers=headers)
-
-    device_json = response.json()
+    response = requests.request("GET", url, headers=headers).json()
 
     device_family = []
 
-    for device in device_json['response']:
+    for device in response['response']:
         device_family.append(device['family'])
 
     count = len(device_family)
