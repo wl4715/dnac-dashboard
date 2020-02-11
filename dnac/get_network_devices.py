@@ -65,13 +65,7 @@ if __name__ == "__main__":
     date = date.replace("/","-")
     print(date)
 
-    result = firebase.put('','/dnac/network-devices/{}/count'.format(date),device_count)
-    result = firebase.put('','/dnac/network-devices/{}/routers'.format(date),routers)
-    result = firebase.put('','/dnac/network-devices/{}/switches'.format(date),switches)
-    result = firebase.put('','/dnac/network-devices/{}/wlc'.format(date),wlc)
-    result = firebase.put('','/dnac/network-devices/{}/aps'.format(date),aps)
-
-    result = firebase.put('','/dnac/devices/count/{}/'.format(date),device_count)
+    result = firebase.put('','/dnac/devices/count/{}'.format(date),device_count)
     result = firebase.put('','/dnac/devices/routers/{}'.format(date),routers)
     result = firebase.put('','/dnac/devices/switches/{}'.format(date),switches)
     result = firebase.put('','/dnac/devices/wlc/{}'.format(date),wlc)

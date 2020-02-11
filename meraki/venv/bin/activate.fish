@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/Wendy/Desktop/dnac-dashboard/meraki/venv"
+set -gx VIRTUAL_ENV "/Users/Wendy/Documents/dnac-dashboard/meraki/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

@@ -1,2 +1,3 @@
-pip meraki-sdk==1.5.0
+pip meraki-sdk==1.5.0 // deprecated
+pip meraki
 pip python-firebase

@@ -1,3 +1,5 @@
+## SDK deprecated apparently
+
 from meraki_sdk.meraki_sdk_client import MerakiSdkClient
 from meraki_sdk.exceptions.api_exception import APIException
 
