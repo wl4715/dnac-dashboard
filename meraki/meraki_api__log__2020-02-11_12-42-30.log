@@ -1,0 +1,14 @@
+2020-02-11 12:42:30       meraki:     INFO > Meraki dashboard API session initialized with these parameters: {'self': <meraki.rest_session.RestSession object at 0x10fe9f490>, 'logger': <Logger meraki (DEBUG)>, 'api_key': '************************************ed87', 'base_url': 'https://api-mp.meraki.com/api/v0', 'single_request_timeout': 60, 'certificate_path': '', 'wait_on_rate_limit': True, 'maximum_retries': 2, 'simulate': False, '__class__': <class 'meraki.rest_session.RestSession'>}
+2020-02-11 12:42:30       meraki:    DEBUG > {'tags': ['Organizations'], 'operation': 'getOrganizations', 'method': 'GET', 'url': '/organizations', 'params': None}
+2020-02-11 12:42:30 urllib3.connectionpool:    DEBUG > Starting new HTTPS connection (1): api-mp.meraki.com:443
+2020-02-11 12:42:31 urllib3.connectionpool:    DEBUG > https://api-mp.meraki.com:443 "GET /api/v0/organizations HTTP/1.1" 200 None
+2020-02-11 12:42:31       meraki:     INFO > Organizations, getOrganizations - 200 OK
+2020-02-11 12:42:31       meraki:    DEBUG > {'tags': ['Networks'], 'operation': 'getOrganizationNetworks', 'method': 'GET', 'url': '/organizations/549236/networks', 'params': {}}
+2020-02-11 12:42:35 urllib3.connectionpool:    DEBUG > https://api-mp.meraki.com:443 "GET /api/v0/organizations/549236/networks HTTP/1.1" 200 None
+2020-02-11 12:42:35       meraki:     INFO > Networks, getOrganizationNetworks - 200 OK
+2020-02-11 12:42:35       meraki:    DEBUG > {'tags': ['Devices'], 'operation': 'getNetworkDevices', 'method': 'GET', 'url': '/networks/L_646829496481104472/devices', 'params': None}
+2020-02-11 12:42:37 urllib3.connectionpool:    DEBUG > https://api-mp.meraki.com:443 "GET /api/v0/networks/L_646829496481104472/devices HTTP/1.1" 200 None
+2020-02-11 12:42:37       meraki:     INFO > Devices, getNetworkDevices - 200 OK
+2020-02-11 12:42:37       meraki:    DEBUG > {'tags': ['Clients'], 'operation': 'getNetworkClients', 'page': 1}
+2020-02-11 12:42:38 urllib3.connectionpool:    DEBUG > https://api-mp.meraki.com:443 "GET /api/v0/networks/L_646829496481104472/clients HTTP/1.1" 200 None
+2020-02-11 12:42:38       meraki:     INFO > Clients, getNetworkClients; page 1 - 200 OK

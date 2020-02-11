@@ -1,0 +1,5 @@
+2020-02-11 12:35:23       meraki:     INFO > Meraki dashboard API session initialized with these parameters: {'self': <meraki.rest_session.RestSession object at 0x102afa490>, 'logger': <Logger meraki (DEBUG)>, 'api_key': '************************************ed87', 'base_url': 'https://api-mp.meraki.com/api/v0', 'single_request_timeout': 60, 'certificate_path': '', 'wait_on_rate_limit': True, 'maximum_retries': 2, 'simulate': False, '__class__': <class 'meraki.rest_session.RestSession'>}
+2020-02-11 12:35:23       meraki:    DEBUG > {'tags': ['Organizations'], 'operation': 'getOrganizations', 'method': 'GET', 'url': '/organizations', 'params': None}
+2020-02-11 12:35:23 urllib3.connectionpool:    DEBUG > Starting new HTTPS connection (1): api-mp.meraki.com:443
+2020-02-11 12:35:24 urllib3.connectionpool:    DEBUG > https://api-mp.meraki.com:443 "GET /api/v0/organizations HTTP/1.1" 200 None
+2020-02-11 12:35:24       meraki:     INFO > Organizations, getOrganizations - 200 OK

@@ -1,0 +1,2 @@
+pip meraki-sdk==1.5.0
+pip python-firebase
