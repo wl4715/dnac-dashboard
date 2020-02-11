@@ -4,6 +4,7 @@ Adastral Park is home to British Telecom's (BT) innovation labs and Innovation. 
 ## Goal
 We aim to take this idea even further by not only creating a dashboard that showcases the number of users connected in real-time using DNAC but we also, want to expand further into ACI and Meraki. Having a true single plane of glass that allows you to compare the data across these 3 different technologies in regards to devices connected, users connected, etc. In short, creating a realtime network dashboard across all the products that will be displayed, most probably, in a Webex TP.
 
+### Overview of the solution
 ![Overview of the solution](/Game_Plan.jpeg)
 
 ## DevNet Github
