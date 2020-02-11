@@ -34,3 +34,7 @@ Get Site Health = https://sandboxdnac2.cisco.com/dna/intent/api/v1/site-health
 Project name/ Project ID = "dashboard-cisco"
 
 Web API key = "AIzaSyD8szGZGGZsuruITbUe6VWS-vZMq492bKI"
+
+## Pip install
+- requests
+- python-firebase

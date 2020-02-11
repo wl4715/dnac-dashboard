@@ -17,7 +17,7 @@ def get_auth_token():
         'Authorization': "Basic ZGV2bmV0dXNlcjpDaXNjbzEyMyE=",
     }
 
-    response = requests.request("POST", url, headers=headers).json()
+    response = requests.request("put", url, headers=headers).json()
 
     token = response['Token']
 
@@ -70,6 +70,13 @@ if __name__ == "__main__":
     result = firebase.put('','/dnac/network-devices/{}/switches'.format(date),switches)
     result = firebase.put('','/dnac/network-devices/{}/wlc'.format(date),wlc)
     result = firebase.put('','/dnac/network-devices/{}/aps'.format(date),aps)
+
+    #result = firebase.put('','/dnac/devices/date/{}'.format(date),date)
+    result = firebase.put('','/dnac/devices/count/{}/'.format(date),device_count)
+    result = firebase.put('','/dnac/devices/routers/{}/'.format(date),routers)
+    result = firebase.put('','/dnac/devices/switches/{}/'.format(date),switches)
+    result = firebase.put('','/dnac/devices/wlc/{}/'.format(date),wlc)
+    result = firebase.put('','/dnac/devices/aps/{}/'.format(date),aps)
 
     result = firebase.get('/dnac', None)
     print(result)

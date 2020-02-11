@@ -1,0 +1,2 @@
+pip requests==2.22.0
+pip python-firebase==1.2
