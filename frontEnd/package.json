@@ -1,0 +1,39 @@
+{
+  "name": "networkdashboard",
+  "version": "1.0.0",
+  "description": "A network Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dookah/NetworkDashboard.git"
+  },
+  "keywords": [
+    "Network",
+    "Automation",
+    "Cisco",
+    "DNA",
+    "Meraki"
+  ],
+  "author": "Joshua Dean, Wendy Lu Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dookah/NetworkDashboard/issues"
+  },
+  "homepage": "https://github.com/dookah/NetworkDashboard#readme",
+  "dependencies": {
+    "@collab-ui/icons": "^4.20.0",
+    "body-parser": "^1.19.0",
+    "bulma-calendar": "^6.0.7",
+    "bulma-extensions": "^6.2.7",
+    "bulma-switch": "^2.0.0",
+    "compression": "^1.7.4",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.2",
+    "nodemon": "^2.0.2"
+  }
+}

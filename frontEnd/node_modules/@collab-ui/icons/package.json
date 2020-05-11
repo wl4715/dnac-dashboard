@@ -1,0 +1,105 @@
+{
+  "_from": "@collab-ui/icons",
+  "_id": "@collab-ui/icons@4.20.0",
+  "_inBundle": false,
+  "_integrity": "sha512-08oFFeljZq1Um6v3r7bQlHtIcnra4WA/m8mPoYLgA50yha5l0TDbJUTDxeXG8hgX1H6l8Py1f9pD+GBf5DRa7Q==",
+  "_location": "/@collab-ui/icons",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@collab-ui/icons",
+    "name": "@collab-ui/icons",
+    "escapedName": "@collab-ui%2ficons",
+    "scope": "@collab-ui",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@collab-ui/icons/-/icons-4.20.0.tgz",
+  "_shasum": "773b68d0dc50cfa156fc4a236381acdbbe244b3e",
+  "_spec": "@collab-ui/icons",
+  "_where": "/Users/joshuadean/Documents/code/NetworkDashboard",
+  "author": {
+    "name": "Cisco Systems, Inc."
+  },
+  "bugs": {
+    "url": "https://github.com/collab-ui/collab-ui/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Paul Jeter",
+      "email": "pauljeter@gmail.com"
+    }
+  ],
+  "deprecated": false,
+  "description": "The Cisco Collab UI Icons library allows developers to easily incorporate Webex Icons and CSS into any application.",
+  "devDependencies": {
+    "@collab-ui/utils": "^5.1.0",
+    "@collab-ui/webfonts-generator": "^1.0.0",
+    "autoprefixer": "^7.2.4",
+    "dotenv": "^6.1.0",
+    "fs-extra": "^5.0.0",
+    "glob": "^7.1.2",
+    "handlebars": "^4.1.0",
+    "lodash": "^4.17.11",
+    "multi-glob": "^1.0.1",
+    "node-sass": "^4.11.0",
+    "node-watch": "^0.5.7",
+    "npm-watch": "^0.3.0",
+    "object-assign": "4.1.1",
+    "promise": "8.0.1",
+    "raf": "3.4.0",
+    "rimraf": "^2.6.3",
+    "svg-sprite": "^1.4.0",
+    "svg-sprite-loader": "^3.7.3",
+    "svgson": "^3.1.0",
+    "yarn": "^1.12.1"
+  },
+  "homepage": "http://momentum.design/styles/icons",
+  "keywords": [
+    "font",
+    "icon",
+    "Cisco",
+    "Webex",
+    "Cisco Spark",
+    "Spark UI",
+    "Collab UI"
+  ],
+  "license": "MIT",
+  "main": "scss/collab-ui-icons.scss",
+  "name": "@collab-ui/icons",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collab-ui/collab-ui.git"
+  },
+  "scripts": {
+    "build": "yarn build:lib",
+    "build:lib": "node tools/icons-build.js",
+    "ci:postpublish": "node ../tools/postpublish.js",
+    "lint": "echo \"Success: lint\" && exit 0",
+    "prepublishOnly": "yarn build:lib",
+    "start": "yarn build:lib",
+    "test": "yarn build:lib",
+    "watch": "npm-watch"
+  },
+  "style": "css/collab-ui-icons.css",
+  "version": "4.20.0",
+  "watch": {
+    "build": {
+      "patterns": [
+        "templates"
+      ],
+      "extensions": "hbs",
+      "quiet": false
+    }
+  }
+}

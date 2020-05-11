@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Dashboard</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--Leveraging the Bulma CSS Kit CDN-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+	<link rel="stylesheet" href="public/css/dashboard.css">
+	<link rel="stylesheet" href="public/css/icons/css/collab-ui-icons.min.css">
+</head>
+
+<body>
+
+	<!-- Divide the page into two columns -->
+	<div class="columns is-gapless">
+		<!--Settings Menu on left -->
+		<div class="column is-narrow is-hidden-touch" style="height: 100vh;">
+			<aside class="menu" style="width:75px; padding:12px;">
+				<ul class="menu-list has-text-centered">
+					<li><a class="has-text-link" style="font-size: 120%;"> <i
+								class="cui-icon icon icon-cisco-logo"></i></a></li>
+					<br>
+					<li> <i class="cui-icon icon icon-home_32"></i></li>
+					<br>
+					<a>
+						<li><i id="settings" class="cui-icon icon icon-settings_32"></i></li>
+					</a>
+				</ul>
+			</aside>
+		</div>
+
+		<!--Main content on the right -->
+		<div class="column" style="background-color: #F5F6FA">
+			<!-- Section for Welcome message -->
+			<div class="columns graphSection" style="padding-top: 1.5rem;">
+				<div class="column">
+					<div class="box">
+						<div class="columns is-centered is-vcentered">
+							<div class="column">
+								<h1 class="title is-1 ">Welcome to <strong class='btCol'>BT</strong>.</h1>
+								<h2 class="subtitle ">Powered by <strong class='ciscoPrimary'>Cisco</strong>
+									Infrastructure. </h2>
+							</div>
+							<div class="column is-hidden-touch">
+								<figure class="image is-128x128 is-pulled-right">
+									<img class="is-rounded" src="public/images/btLogo.jpg">
+								</figure>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Section for quick glance info-->
+
+			<div class="columns graphSection topRow">
+				<div class="column is-3">
+					<div class="box" id="networkDevices">
+						<h1 class="subtitle has-text-dark">Network Devices</h1>
+						<div class="title has-text-dark">{{ message }}</div>
+						<h1 class="subtitle is-size-6 has-text-dark has-text-weight-light"><span
+								class="has-text-success">{{ change }}</span> since last month</h1>
+					</div>
+				</div>
+				<div class="column is-3">
+					<div class="box" id="onlineDevices">
+						<h1 class="subtitle has-text-dark">Online Devices</h1>
+						<h1 class="title has-text-dark">{{ message }}</h1>
+						<h1 class="subtitle is-size-6 has-text-dark has-text-weight-light">{{ date }}</h1>
+					</div>
+				</div>
+				<div class="column is-3">
+					<div class="box" id="offlineDevices">
+						<h1 class="subtitle has-text-dark">Offline Devices</h1>
+						<h1 class="title has-text-dark">{{ message }}</h1>
+						<h1 class="subtitle is-size-6 has-text-dark has-text-weight-light">{{ date }}</h1>
+					</div>
+				</div>
+				<div class="column is-3">
+					<div class="box" id="popularOS">
+						<h1 class="subtitle has-text-dark">Popular OS</h1>
+						<h1 class="title has-text-dark"> {{ message }}</h1>
+						<h1 class="subtitle is-size-6 has-text-dark has-text-weight-light">{{ date }}</h1>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="columns graphSection bottomRow">
+				<div class="column is-3">
+					<div class='box bottomBar'>
+						<h1 class='subtitle has-text-centered'> Device Breakdown</h1>
+						<br>
+						<div>
+							<canvas id="deviceChart" height="250"></canvas>
+						</div>
+
+						<p class="subtitle has-text-centered is-6">Number of Devices</p>
+
+
+
+						<div class="tags is-centered">
+							<span class="tag is-medium has-text-white" style="background-color: #3e95cd">Routers</span>
+							<span class="tag is-medium has-text-white" style="background-color: #8e5ea2">Switches</span>
+							<span class="tag is-medium has-text-white" style="background-color: #3cba9f">APs</span>
+							<span class="tag is-medium" style="background-color: #e8c3b9">WLC</span>
+						</div>
+					</div>
+
+				</div>
+				<div class="column is-7">
+					<div class='box bottomBar'>
+						<h1 class='subtitle has-text-centered'> Operating Systems</h1>
+						<br>
+						<div>
+							<canvas id="osTrends" height="100"></canvas>
+						</div>
+						<p class="subtitle has-text-centered is-6">Timestamp</p>
+
+						<div class="tags is-centered">
+							<span class="tag is-medium has-text-white" style="background-color: #3e95cd">Windows</span>
+							<span class="tag is-medium has-text-white" style="background-color: #8e5ea2">Mac</span>
+							<span class="tag is-medium has-text-white" style="background-color: #3cba9f">Linux</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="column is-2">
+					<div class='box bottomBar'>
+
+						<h1 class='subtitle has-text-centered'> Satisfaction</h1>
+						<span class="tag is-danger is-pulled-right">Beta</span>
+						<br>
+						<div>
+							<canvas id="sentimentChart" height="250"></canvas>
+						</div>
+						<hr>
+						<div class=" is-vcentered">
+
+							<h1 id='happinessRating' class="title has-text-centered is-size-2 is-size-6-touch">{{ message }}</h1>
+
+							<p class="is-size-6 has-text-centered  has-text-weight-light  is-size-6-touch">Happiness Recognised</p>
+
+						</div>
+						<hr>
+
+						<div class="tags is-centered">
+							<span class="tag is-medium has-text-white" style="background-color: #18ca8e">Happy</span>
+							<span class="tag is-medium has-text-white" style="background-color: #FF6961">Unhappy</span>
+							<span class="tag is-medium has-text-dark" style="background-color: #e0e0e0">Neutral</span>
+						</div>
+						<p class='has-text-centered '>Powered by <strong>Cisco Meraki</strong></p>
+
+						<!-- Bit of a hack, holding the image url here for the Azure call. -->
+						<input hidden type="text" name="inputImage" id="inputImage"
+						value="https://i.imgur.com/dHUvpdi.png" />
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Settings Modal  -->
+		<div id='modal' class="modal">
+			<div class="modal-background"></div>
+			<div class="modal-card">
+
+				<section class="modal-card-body">
+					<div class="columns">
+						<div id="background" class="column is-4">
+
+						</div>
+
+						<div id="settingsForm" class="column is-gapless">
+							<button id="close"><i class="cui-icon icon icon-cancel_14"></i></button>
+							<h1 class="title">Settings</h1>
+							<hr>
+							<h1 class="is-size-5">Update Listening</h1>
+							<label class="checkbox">
+								<input type="checkbox" id='merakiToggle' checked>
+								Meraki
+							</label>
+							<br>
+
+							<label class="checkbox">
+								<input type="checkbox" id='dnacToggle' checked>
+								DNA-C
+							</label>
+							<br>
+							<label class="checkbox">
+								<input type="checkbox" disabled>
+								ACI
+							</label>
+							<br>
+							<hr>
+							<h1 class="is-size-5">Top Row</h1>
+							<button class='button' onclick="toggleTopRow()">Toggle</button>
+							<hr>
+							<h1 class="is-size-5">Bottom Row</h1>
+							<button class='button' onclick="toggleBottomRow()">Toggle</button>
+							<hr>
+							<h1 class="is-size-5">Danger Zone</h1>
+							
+							<button class='button is-danger' onclick="resetNetworkInformation()">Clear Data</button>
+						</div>
+
+					</div>
+					<!--Form section of the modal to enter API keys-->
+				</section>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase.js"></script>
+
+
+
+	<script src="public/js/databaseConnector.js"></script>
+	<script src="public/js/script.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>

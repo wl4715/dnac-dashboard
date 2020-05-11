@@ -1,0 +1,119 @@
+body {
+	margin: 0;
+	padding: 0;
+	scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+html {
+	scrollbar-width: none;
+}
+
+.graphSection {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+.sideIcons {
+	width: 60px;
+	height: 50px;
+	line-height: 50px;
+	color: #919191;
+	font-size: 30px;
+	margin: 0 auto;
+	margin-top: 2rem;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.rightSide {
+	height: 100vh;
+}
+
+#background {
+	background-image: url(../images/settingsBackground.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.modal-card-body {
+	padding: 0 !important;
+}
+
+#settingsForm {
+	padding: 30px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+#close {
+	position: absolute;
+	z-index: 1000;
+	top: -15px;
+	right: -15px;
+	width: 45px;
+	height: 45px;
+	overflow: visible !important;
+	border-radius: 50%;
+	background-color: #0a0a0a;
+	color: white;
+	border-style: none;
+	transition: width 0.3s, height 0.3s, top 0.3s, right 0.3s;
+}
+
+#close:hover {
+	top: -20px;
+	right: -20px;
+	width: 55px;
+	height: 55px;
+	cursor: pointer;
+}
+
+.modal-card {
+	overflow: visible !important;
+}
+
+#settings:hover {
+	animation: rotating 2.5s linear infinite;
+	-webkit-animation: rotating 2.5s linear infinite;
+}
+
+@keyframes rotating {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes rotating {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+.altCol {
+	background-color: #F5F6FA !important;
+}
+
+.btCol {
+	color: rgb(89, 26, 163) !important;
+}
+.bottomBar{
+	height: 100% !important;
+	width: auto;
+	overflow: hidden;
+}
+.topBar{
+	height: 1vh !important;
+}
