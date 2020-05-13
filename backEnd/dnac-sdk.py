@@ -1,16 +1,20 @@
-from dnacentersdk import api
-from credentials import dnac_url, username, password
+# Import Firebase admin libraries
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
+# Import DNA Center SDK 
+from dnacentersdk import api
+# Import Date & Time Library
 from datetime import datetime
+# Create a separate file with your environment credentials
+from credentials import dnac_url, username, password
 
 # Initialize the app with a service account, granting admin privileges
 cred = credentials.Certificate('serviceAccountKey.json')
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://dashboard-cisco.firebaseio.com/'
 })
-
+# Authenticate in DNA Center
 dnac = api.DNACenterAPI(base_url = dnac_url, username = username, password = password)
 
 # Function to get devices in the network
@@ -32,15 +36,10 @@ def setup_custom():
                                     ).response
                             )
 
-# Function that takes the path and the value and pushes it to Firebase    
-def push_to_firebase(path, value):
-	# True: Retrieve current time in year/month/day/hour/minute
-	# if True:
-	# 	date = str(datetime.now().strftime("%Y%m%d%H%M"))
-	# # False: Retrieve current time in year/month/day
-	# else:
-	date = str(datetime.now().strftime("%Y%m%d"))
-
+# Function that takes the path, the value and the data format 
+# and pushes to Firebase  
+def push_to_firebase(path, value, time_format):
+	date = str(datetime.now().strftime(time_format))
 	# Define the Path
 	ref = db.reference(path+date)
 	# Set the value
@@ -78,13 +77,16 @@ if __name__ == "__main__":
 	wireless_clients_fair = client_health[2]['scoreList'][1]['clientCount']
 	wireless_clients_good = client_health[2]['scoreList'][2]['clientCount']
 
+	Ymd = "%Y%m%d" # Year/Month/Date
+	YmdHM = "%Y%m%d%H%M" # Year/Month/Date/hour/minute
+
 	# Push to Firebase
-	push_to_firebase('dnac/networkDevices/aps/', access_point)
-	push_to_firebase('dnac/networkDevices/wlc/', wireless_controller)
-	push_to_firebase('dnac/networkDevices/sw/', switches)
-	push_to_firebase('dnac/networkDevices/routers/', routers)
-	push_to_firebase('dnac/networkClients/wired/', wired_clients)
-	push_to_firebase('dnac/networkClients/wireless/', wireless_clients)
-	push_to_firebase('dnac/networkClients/wireless_score/poor', wireless_clients_poor)
-	push_to_firebase('dnac/networkClients/wireless_score/fair', wireless_clients_fair)
-	push_to_firebase('dnac/networkClients/wireless_score/good', wireless_clients_good)
+	push_to_firebase('dnac/networkDevices/aps/', access_point, Ymd)
+	push_to_firebase('dnac/networkDevices/wlc/', wireless_controller, Ymd)
+	push_to_firebase('dnac/networkDevices/sw/', switches, Ymd)
+	push_to_firebase('dnac/networkDevices/routers/', routers, Ymd)
+	push_to_firebase('dnac/networkClients/wired/', wired_clients, YmdHM)
+	push_to_firebase('dnac/networkClients/wireless/', wireless_clients, YmdHM)
+	push_to_firebase('dnac/networkClients/wireless_score/poor/', wireless_clients_poor, YmdHM)
+	push_to_firebase('dnac/networkClients/wireless_score/fair/', wireless_clients_fair, YmdHM)
+	push_to_firebase('dnac/networkClients/wireless_score/good/', wireless_clients_good, YmdHM)
