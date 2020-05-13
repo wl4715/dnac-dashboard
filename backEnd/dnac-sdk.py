@@ -1,13 +1,9 @@
-# Import Firebase admin libraries
-import firebase_admin
+from dnacentersdk import api # Import DNA Center SDK 
+from datetime import datetime # Import Date & Time Library
+import firebase_admin # Import Firebase admin libraries
 from firebase_admin import credentials
 from firebase_admin import db
-# Import DNA Center SDK 
-from dnacentersdk import api
-# Import Date & Time Library
-from datetime import datetime
-# Create a separate file with your environment credentials
-from credentials import dnac_url, username, password
+from credentials import dnac_url, username, password # Separate file with credentials
 
 # Initialize the app with a service account, granting admin privileges
 cred = credentials.Certificate('serviceAccountKey.json')
@@ -39,6 +35,7 @@ def setup_custom():
 # Function that takes the path, the value and the data format 
 # and pushes to Firebase  
 def push_to_firebase(path, value, time_format):
+	# Get the current time
 	date = str(datetime.now().strftime(time_format))
 	# Define the Path
 	ref = db.reference(path+date)
