@@ -7,12 +7,14 @@ We aim to take this idea even further by not only creating a dashboard that show
 ## Overview of the solution
 ![Overview of the solution](/Game_Plan.jpeg)
 
-## DNAC
-### DevNet Github
+## Backend
+### DNAC DevNet Github
 [DevNet DNAC Github](https://github.com/CiscoDevNet/DNAC-NetworkDevice)
+[New Meraki SDK](https://github.com/meraki/dashboard-api-python)
+[DNA Center SDK](https://github.com/cisco-en-programmability/dnacentersdk)
+[Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)
 
-
-## Pip install
+### Pip install
 - requests
 - python-firebase ** deprecated
 - firebase-admin
