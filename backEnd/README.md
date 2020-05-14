@@ -6,7 +6,7 @@ Using the following environments:
 - Meraki Home Network for MV
 
 And the using the following libraries:
-- Requests
+- Firebase-admin
 - DNAC SDK
 - Meraki SDK
 
