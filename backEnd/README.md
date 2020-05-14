@@ -13,3 +13,20 @@ And the using the following libraries:
 ## Upload Data to Firebase
 - Formatted in JSON
 - Uploaded using firebase-admin SDK
+
+## Useful Links DevNet Github
+[DevNet DNAC Github](https://github.com/CiscoDevNet/DNAC-NetworkDevice)
+
+[New Meraki SDK](https://github.com/meraki/dashboard-api-python)
+
+[DNA Center SDK](https://github.com/cisco-en-programmability/dnacentersdk)
+
+[Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)
+
+## Pip install
+- requests
+- python-firebase ** deprecated
+- firebase-admin
+- meraki-sdk ** deprecated
+- meraki
+- dnacentersdk
