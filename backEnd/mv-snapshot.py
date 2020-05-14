@@ -17,13 +17,13 @@ dashboard = meraki.DashboardAPI(
 )
 
 # Get the snapshot from a specific timestamp
-def get_snapshot(time):	
+def get_snapshot_url(time):	
 	body = {'timestamp': time, 'fullframe': False}
 	snapshot = dashboard.cameras.generateNetworkCameraSnapshot(network_id, serial, **body)
 	return snapshot['url']
 
 if __name__ = "__main__":
-	photo_url = get_snapshot('2020-05-11T06:19:34-07:00')
+	photo_url = get_snapshot_url('2020-05-11T06:19:34-07:00')
 	# Upload to Firebase
 	ref = db.reference('meraki/photoURL/')
 	ref.set(photo_url)

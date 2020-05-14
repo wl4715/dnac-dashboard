@@ -32,7 +32,7 @@ def setup_custom():
                                     ).response
                             )
 
-# Function that takes the path, the value and the data format 
+# Function that takes the path, the value, the data and the time format 
 # and pushes to Firebase  
 def push_to_firebase(path, value, time_format):
 	# Get the current time

@@ -1,0 +1,15 @@
+2020-05-14 10:20:54       meraki:     INFO > Meraki dashboard API session initialized with these parameters: {'caller': None, 'be_geo_id': None, 'simulate': False, 'maximum_retries': 2, 'retry_4xx_error_wait_time': 60, 'retry_4xx_error': False, 'action_batch_retry_wait_time': 60, 'nginx_429_retry_wait_time': 60, 'wait_on_rate_limit': True, 'certificate_path': '', 'single_request_timeout': 60, 'base_url': 'https://api-mp.meraki.com/api/v0', 'api_key': '************************************ed87', 'logger': <Logger meraki (DEBUG)>, 'self': <meraki.rest_session.RestSession object at 0x7fbdaf995390>, '__class__': <class 'meraki.rest_session.RestSession'>}
+2020-05-14 10:20:54       meraki:    DEBUG > {'tags': ['Devices'], 'operation': 'getNetworkDevices', 'method': 'GET', 'url': '/networks/L_646829496481104079/devices', 'params': None}
+2020-05-14 10:20:54 urllib3.connectionpool:    DEBUG > Starting new HTTPS connection (1): api-mp.meraki.com:443
+2020-05-14 10:20:56 urllib3.connectionpool:    DEBUG > https://api-mp.meraki.com:443 "GET /api/v0/networks/L_646829496481104079/devices HTTP/1.1" 200 None
+2020-05-14 10:20:56       meraki:     INFO > Devices, getNetworkDevices - 200 OK
+2020-05-14 10:20:56 urllib3.util.retry:    DEBUG > Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2020-05-14 10:20:56 google.auth.transport.requests:    DEBUG > Making request: POST https://oauth2.googleapis.com/token
+2020-05-14 10:20:56 urllib3.connectionpool:    DEBUG > Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2020-05-14 10:20:56 urllib3.connectionpool:    DEBUG > https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2020-05-14 10:20:56 urllib3.connectionpool:    DEBUG > Starting new HTTPS connection (1): dashboard-cisco.firebaseio.com:443
+2020-05-14 10:20:56 urllib3.connectionpool:    DEBUG > https://dashboard-cisco.firebaseio.com:443 "PUT /dnac/networkDevices/mr/20200514.json?print=silent HTTP/1.1" 204 0
+2020-05-14 10:20:56 urllib3.connectionpool:    DEBUG > https://dashboard-cisco.firebaseio.com:443 "PUT /dnac/networkDevices/ms/20200514.json?print=silent HTTP/1.1" 204 0
+2020-05-14 10:20:57 urllib3.connectionpool:    DEBUG > https://dashboard-cisco.firebaseio.com:443 "PUT /dnac/networkDevices/mx/20200514.json?print=silent HTTP/1.1" 204 0
+2020-05-14 10:20:57 urllib3.connectionpool:    DEBUG > https://dashboard-cisco.firebaseio.com:443 "PUT /dnac/networkDevices/mv/20200514.json?print=silent HTTP/1.1" 204 0
+2020-05-14 10:20:57 urllib3.connectionpool:    DEBUG > https://dashboard-cisco.firebaseio.com:443 "PUT /dnac/networkDevices/mg/20200514.json?print=silent HTTP/1.1" 204 0
