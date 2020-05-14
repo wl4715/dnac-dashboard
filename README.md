@@ -7,23 +7,11 @@ We aim to take this idea even further by not only creating a dashboard that show
 ## Overview of the solution
 ![Overview of the solution](/Game_Plan.jpeg)
 
-## Backend
-### DevNet Github
-[DevNet DNAC Github](https://github.com/CiscoDevNet/DNAC-NetworkDevice)
+## 1. Backend
+Check backEnd folder for Northbound APIs and pushing to Firebase
 
-[New Meraki SDK](https://github.com/meraki/dashboard-api-python)
-
-[DNA Center SDK](https://github.com/cisco-en-programmability/dnacentersdk)
-
-[Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)
-
-### Pip install
-- requests
-- python-firebase ** deprecated
-- firebase-admin
-- meraki-sdk ** deprecated
-- meraki
-- dnacentersdk
-
-## Firebase 
+## 2. Firebase 
 https://dashboard-cisco.firebaseio.com/
+
+## 3. Frontend
+Check frontEnd folder for retrieving data from Firebase and displaying with vue.js
