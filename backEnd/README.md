@@ -23,7 +23,7 @@ And the using the following libraries:
 
 [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)
 
-### Pip install
+## Pip install
 - requests
 - python-firebase ** deprecated
 - firebase-admin
