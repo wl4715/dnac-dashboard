@@ -29,7 +29,13 @@ def get_devices_model():
 # Get Network Clients
 def get_network_clients():
 	network_clients = dashboard.clients.getNetworkClients(ise_network_id)
-	return network_clients
+	clients_status = []
+	clients_os = []
+	for clients in network_clients:
+		clients_status.append(clients['status'])
+		clients_os.append(clients['os'])
+
+	return clients_status, clients_os
 
 # Function that takes the path, the value, the data and the time format 
 # and pushes to Firebase  
@@ -53,10 +59,19 @@ if __name__ == '__main__':
 	mv = device_model.count('mv')
 	mg = device_model.count('mg')
 
-	network_clients = get_network_clients()
-	print(network_clients)
+	clients_status, clients_os = get_network_clients()
+	print(clients_status, clients_os)
 
+	# Clients per status
+	online_clients = clients_status.count('Online')
+	offline_clients = clients_status.count('Offline')
 
+	# Clients per Operating System
+	mac_users = clients_os.count('Mac')
+	windows_users = clients_os.count('Windows')
+	linux_users = clients_os.count('Linux')
+
+	# Possible time formats 
 	Ymd = "%Y%m%d" # Year/Month/Date
 	YmdHM = "%Y%m%d%H%M" # Year/Month/Date/hour/minute
 
@@ -67,9 +82,8 @@ if __name__ == '__main__':
 	push_to_firebase('dnac/networkDevices/mv/', mv, Ymd)
 	push_to_firebase('dnac/networkDevices/mg/', mg, Ymd)
 
-	# push_to_firebase('meraki/networkClients/online/', online_clients, YmdHM)
-	# push_to_firebase('meraki/networkClients/offline/', offline_clients, YmdHM)
-	# push_to_firebase('meraki/networkClients/online/', wireless_clients, YmdHM)
-	# push_to_firebase('meraki/networkClients/OS/Mac/', mac_users, YmdHM)
-	# push_to_firebase('meraki/networkClients/OS/Windows/', windows_users, YmdHM)
-	# push_to_firebase('meraki/networkClients/OS/Linux/', linux_users, YmdHM)
+	push_to_firebase('meraki/networkClients/online/', online_clients, YmdHM)
+	push_to_firebase('meraki/networkClients/offline/', offline_clients, YmdHM)
+	push_to_firebase('meraki/networkClients/OS/Mac/', mac_users, YmdHM)
+	push_to_firebase('meraki/networkClients/OS/Windows/', windows_users, YmdHM)
+	push_to_firebase('meraki/networkClients/OS/Linux/', linux_users, YmdHM)

@@ -1,4 +1,4 @@
 venv/
 credentials.py
 serviceAccountKey.json
-meraki_api_log_*
+**/meraki_api_log*
