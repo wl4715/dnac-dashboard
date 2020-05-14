@@ -14,7 +14,7 @@ And the using the following libraries:
 - Formatted in JSON
 - Uploaded using firebase-admin SDK
 
-## Useful Links DevNet Github
+## Useful Links
 [DevNet DNAC Github](https://github.com/CiscoDevNet/DNAC-NetworkDevice)
 
 [New Meraki SDK](https://github.com/meraki/dashboard-api-python)
@@ -23,7 +23,7 @@ And the using the following libraries:
 
 [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)
 
-## Pip install
+### Pip install
 - requests
 - python-firebase ** deprecated
 - firebase-admin
