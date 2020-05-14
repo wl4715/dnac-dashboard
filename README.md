@@ -14,4 +14,11 @@ We aim to take this idea even further by not only creating a dashboard that show
 
 ## Pip install
 - requests
-- python-firebase
+- python-firebase ** deprecated
+- firebase-admin
+- meraki-sdk ** deprecated
+- meraki
+- dnacentersdk
+
+## Firebase 
+https://dashboard-cisco.firebaseio.com/
