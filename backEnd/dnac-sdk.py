@@ -48,7 +48,7 @@ if __name__ == "__main__":
 	device_family = get_devices_family()
 	print(device_family)
 	
-	# Get number of devices per model 
+	# Get number of devices per family 
 	routers = device_family.count('Routers')
 	switches = device_family.count('Switches and Hubs')
 	wireless_controller = device_family.count('Wireless Controller')
@@ -82,6 +82,7 @@ if __name__ == "__main__":
 	push_to_firebase('dnac/networkDevices/wlc/', wireless_controller, Ymd)
 	push_to_firebase('dnac/networkDevices/sw/', switches, Ymd)
 	push_to_firebase('dnac/networkDevices/routers/', routers, Ymd)
+
 	push_to_firebase('dnac/networkClients/wired/', wired_clients, YmdHM)
 	push_to_firebase('dnac/networkClients/wireless/', wireless_clients, YmdHM)
 	push_to_firebase('dnac/networkClients/wireless_score/poor/', wireless_clients_poor, YmdHM)

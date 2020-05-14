@@ -3,7 +3,7 @@ from datetime import datetime # Import Date & Time Library
 import firebase_admin # Import Firebase Python SDK
 from firebase_admin import credentials
 from firebase_admin import db
-from credentials import meraki_api_key, network_id # Separate file with credentials
+from credentials import ise_api_key, ise_network_id # Separate file with credentials
 
 # Fetch the service account key JSON file contents
 cred = credentials.Certificate('serviceAccountKey.json')
@@ -14,17 +14,22 @@ firebase_admin.initialize_app(cred, {
 
 # Initialize Meraki Dashboard with api_key authentication
 dashboard = meraki.DashboardAPI(
-    api_key = meraki_api_key,
-    base_url = 'https://api-mp.meraki.com/api/v0'
+    api_key = ise_api_key,
+    base_url = 'https://n143.meraki.com/api/v0'
 )
 
 # Get Network Devices Models
 def get_devices_model():
-	devices = dashboard.devices.getNetworkDevices(network_id)
+	devices = dashboard.devices.getNetworkDevices(ise_network_id)
 	device_model = []
 	for device in devices:
 		device_model.append(device['model'][:2])
 	return device_model
+
+# Get Network Clients
+def get_network_clients():
+	network_clients = dashboard.clients.getNetworkClients(ise_network_id)
+	return network_clients
 
 # Function that takes the path, the value, the data and the time format 
 # and pushes to Firebase  
@@ -47,6 +52,9 @@ if __name__ == '__main__':
 	mx = device_model.count('mx')
 	mv = device_model.count('mv')
 	mg = device_model.count('mg')
+
+	network_clients = get_network_clients()
+	print(network_clients)
 
 
 	Ymd = "%Y%m%d" # Year/Month/Date
